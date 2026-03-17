@@ -1,0 +1,20 @@
+# Source code — NEVER publish this
+src/
+build.js
+test/
+
+# Dev files
+.env
+.env.*
+*.log
+.DS_Store
+
+# Git
+.git/
+.gitignore
+.github/
+
+# Dev dependencies config
+.eslintrc*
+.prettierrc*
+jest.config.*

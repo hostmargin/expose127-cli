@@ -1,0 +1,40 @@
+{
+  "name": "hostmargin",
+  "version": "1.0.0",
+  "description": "Expose your localhost to the internet via hostmargin.com",
+  "main": "dist/index.js",
+  "bin": {
+    "hostmargin": "./dist/cli.js"
+  },
+  "scripts": {
+    "build":          "node build.js",
+    "prepublishOnly": "npm run build && npm test",
+    "test":           "node test/test.js",
+    "start":          "node src/cli.js",
+    "dev":            "node src/cli.js"
+  },
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "dependencies": {
+    "chalk":     "^4.1.2",
+    "commander": "^11.1.0",
+    "ora":       "^5.4.1",
+    "ws":        "^8.16.0"
+  },
+  "devDependencies": {
+    "javascript-obfuscator": "^4.1.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": ["tunnel", "localhost", "expose", "hostmargin", "ngrok", "public-url"],
+  "author": "Hostmargin <support@hostmargin.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hostmargin/cli.git"
+  },
+  "homepage": "https://hostmargin.com"
+}
