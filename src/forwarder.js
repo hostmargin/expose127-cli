@@ -1,6 +1,6 @@
 'use strict';
 
-const http  = require('http');
+const http = require('http');
 const https = require('https');
 
 /**
@@ -23,12 +23,16 @@ function forwardRequest(requestMsg, localPort, protocol = 'http') {
     delete cleanHeaders['connection'];
     delete cleanHeaders['transfer-encoding'];
 
+    cleanHeaders['x-forwarded-proto'] = 'https';
+    cleanHeaders['x-forwarded-host'] = headers.host || `localhost:${localPort}`;
+    cleanHeaders['x-forwarded-port'] = '443';
+
     const options = {
       hostname: '127.0.0.1',
-      port:     localPort,
-      path:     urlPath || '/',
-      method:   method  || 'GET',
-      headers:  {
+      port: localPort,
+      path: urlPath || '/',
+      method: method || 'GET',
+      headers: {
         ...cleanHeaders,
         host: `localhost:${localPort}`,
       },
@@ -44,12 +48,12 @@ function forwardRequest(requestMsg, localPort, protocol = 'http') {
       localRes.on('end', () => {
         const responseBody = Buffer.concat(chunks).toString('base64');
         resolve({
-          type:       'response',
+          type: 'response',
           requestId,
           statusCode: localRes.statusCode,
-          headers:    localRes.headers,
-          body:       responseBody,
-          encoding:   'base64',
+          headers: localRes.headers,
+          body: responseBody,
+          encoding: 'base64',
           durationMs: Date.now() - startTime,
         });
       });
@@ -59,24 +63,24 @@ function forwardRequest(requestMsg, localPort, protocol = 'http') {
     localReq.setTimeout(25000, () => {
       localReq.destroy();
       resolve({
-        type:       'response',
+        type: 'response',
         requestId,
         statusCode: 504,
-        headers:    { 'content-type': 'text/plain' },
-        body:       Buffer.from('hostmargin: local server timed out after 25s').toString('base64'),
-        encoding:   'base64',
+        headers: { 'content-type': 'text/plain' },
+        body: Buffer.from('hostmargin: local server timed out after 25s').toString('base64'),
+        encoding: 'base64',
         durationMs: Date.now() - startTime,
       });
     });
 
     localReq.on('error', (err) => {
       resolve({
-        type:       'response',
+        type: 'response',
         requestId,
         statusCode: 502,
-        headers:    { 'content-type': 'text/plain' },
-        body:       Buffer.from(`hostmargin: could not reach localhost:${localPort} — ${err.message}`).toString('base64'),
-        encoding:   'base64',
+        headers: { 'content-type': 'text/plain' },
+        body: Buffer.from(`hostmargin: could not reach localhost:${localPort} — ${err.message}`).toString('base64'),
+        encoding: 'base64',
         durationMs: Date.now() - startTime,
       });
     });
