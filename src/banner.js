@@ -30,7 +30,7 @@ function printBanner() {
   } else {
     // Plain ASCII — safe in cmd.exe and older PowerShell
     console.log(chalk.cyan('  +--------------------------------------------------+'));
-    console.log(chalk.cyan('  |   HOSTMARGIN  --  instant public tunnel URLs     |'));
+    console.log(chalk.cyan('  |   EXPOSE127  --  instant public tunnel URLs     |'));
     console.log(chalk.cyan('  +--------------------------------------------------+'));
   }
 
