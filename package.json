@@ -1,27 +1,27 @@
 {
   "name": "expose127",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Expose your localhost to the internet via hmrg.xyz",
   "main": "dist/index.js",
   "bin": {
     "expose127": "./dist/cli.js"
   },
   "scripts": {
-    "build":          "node build.js",
+    "build": "node build.js",
     "prepublishOnly": "npm run build && npm test",
-    "test":           "node test/test.js",
-    "start":          "node src/cli.js",
-    "dev":            "node src/cli.js"
+    "test": "node test/test.js",
+    "start": "node src/cli.js",
+    "dev": "node src/cli.js"
   },
   "files": [
     "dist/",
     "README.md"
   ],
   "dependencies": {
-    "chalk":     "^4.1.2",
+    "chalk": "^4.1.2",
     "commander": "^11.1.0",
-    "ora":       "^5.4.1",
-    "ws":        "^8.16.0"
+    "ora": "^5.4.1",
+    "ws": "^8.16.0"
   },
   "devDependencies": {
     "javascript-obfuscator": "^4.1.1"
@@ -29,7 +29,14 @@
   "engines": {
     "node": ">=16.0.0"
   },
-  "keywords": ["tunnel", "localhost", "expose", "hostmargin", "ngrok", "public-url"],
+  "keywords": [
+    "tunnel",
+    "localhost",
+    "expose",
+    "hostmargin",
+    "ngrok",
+    "public-url"
+  ],
   "author": "Hostmargin <mail@hostmargin.com>",
   "license": "MIT",
   "repository": {
