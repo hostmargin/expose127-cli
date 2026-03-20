@@ -91,8 +91,8 @@ https://fast-wave-4821.hmrg.xyz  ← share this with anyone
 
 ## Links
 
-- Website: https://hmrg.xyz
-- Issues: https://github.com/YOUR_USERNAME/expose127/issues
+- Website: https://expose127.hostmargin.com
+- Issues: https://client.hostmargin.com/submitticket.php?step=2&deptid=1
 - npm: https://npmjs.com/package/expose127
 
 ---
