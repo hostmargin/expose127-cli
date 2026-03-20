@@ -1,7 +1,7 @@
 {
   "name": "expose127",
   "version": "1.0.3",
-  "description": "Expose your localhost to the internet via hmrg.xyz",
+  "description": "Expose your localhost to the internet instantly via hmrg.xyz",
   "main": "dist/index.js",
   "bin": {
     "expose127": "./dist/cli.js"
@@ -33,15 +33,15 @@
     "tunnel",
     "localhost",
     "expose",
-    "hostmargin",
     "ngrok",
-    "public-url"
+    "public-url",
+    "hmrg",
+    "expose127"
   ],
   "author": "Hostmargin <mail@hostmargin.com>",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hostmargin/cli.git"
-  },
-  "homepage": "https://expose127.hostmargin.com"
+  "homepage": "https://expose127.hostmargin.com",
+  "bugs": {
+    "url": "https://expose127.hostmargin.com"
+  }
 }
