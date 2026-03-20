@@ -1,6 +1,6 @@
 {
   "name": "expose127",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Expose your localhost to the internet instantly via hmrg.xyz",
   "main": "dist/index.js",
   "bin": {
