@@ -1,10 +1,10 @@
 {
   "name": "expose127",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Expose your localhost to the internet instantly via hmrg.xyz",
   "main": "dist/index.js",
   "bin": {
-    "expose127": "./dist/cli.js"
+    "expose127": "dist/cli.js"
   },
   "scripts": {
     "build": "node build.js",
