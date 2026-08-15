@@ -23,6 +23,7 @@ async function startTunnel(localPort, options = {}) {
   const {
     subdomain = null,
     protocol = 'http',
+    token = null,
     host = config.TUNNEL_SERVER_HOST,
     port = config.TUNNEL_SERVER_PORT,
   } = options;
@@ -61,6 +62,7 @@ async function startTunnel(localPort, options = {}) {
         headers: {
           'x-hm-client-version': config.VERSION,
           'x-hm-protocol': protocol,
+          ...(token ? { 'x-hm-token': token } : {}),
         },
         handshakeTimeout: 10000,
         rejectUnauthorized: false,

@@ -54,6 +54,7 @@ program
   .description('Start a tunnel for the given localhost port')
   .option('-s, --subdomain <n>',      'Request a custom subdomain  (e.g. my-app)')
   .option('-p, --protocol <proto>',   'Local protocol: http or https', 'http')
+  .option('-t, --token <token>',      'Personal API token (from your expose127 dashboard) — links this tunnel to your account')
   .option('--host <host>',            'Override tunnel server host', config.TUNNEL_SERVER_HOST)
   .option('--port <port>',            'Override tunnel server port', String(config.TUNNEL_SERVER_PORT))
   .addHelpText('after', `
@@ -73,6 +74,7 @@ Examples:
     await startTunnel(localPort, {
       subdomain: options.subdomain || null,
       protocol:  options.protocol  || 'http',
+      token:     options.token     || null,
       host:      options.host,
       port:      parseInt(options.port, 10),
     });
